@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www -p 8000",
+    "start": "node ./bin/www",
     "devStart": "nodemon app.js"
   },
   "dependencies": {
@@ -12,10 +12,13 @@
     "debug": "^4.3.4",
     "express": "^4.18.3",
     "http-errors": "^2.0.0",
+    "mongodb": "^6.4.0",
+    "mongoose": "^8.2.0",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "nodemon": "^3.1.0"
   }
 }

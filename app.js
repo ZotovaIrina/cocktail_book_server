@@ -8,10 +8,20 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var ingredientsRouter = require("./routes/ingredients");
 const cors = require("cors");
+const mongoose = require("mongoose");
+
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 var app = express();
 app.use(cors());
-app.listen(8000);
+app.listen(process.env.PORT || 8000);
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+const db = mongoose.connection;
+
+db.on("error", (error) => console.error("DB Error: ", error));
+db.once("open", () => console.log("Connected to mongoose"));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
