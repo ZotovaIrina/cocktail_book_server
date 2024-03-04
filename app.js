@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "production") {
 var app = express();
 app.use(cors());
 app.listen(process.env.PORT || 8000);
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 
 db.on("error", (error) => console.error("DB Error: ", error));
