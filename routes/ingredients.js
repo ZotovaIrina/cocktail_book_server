@@ -6,7 +6,7 @@ const errors = require("./errors");
 
 router.get("/getAllIngredients", async function (req, res, next) {
   const data = await Ingredient.find({});
-  res.send(200, data);
+  res.status(200).body(data);
 });
 
 router.post("/", async function (req, res, next) {
@@ -16,7 +16,7 @@ router.post("/", async function (req, res, next) {
         name: req.body.name,
         description: req.body.description,
       });
-      res.send(200, ingredient);
+      res.status(200).body(ingredient);
     } catch (e) {
       console.log("Error save", e);
       res.send(500, errors.ERROR_SAVE_DATA);
